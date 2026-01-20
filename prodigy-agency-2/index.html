@@ -1,0 +1,1599 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prodigy Agency | Digital Marketing & Social Media Management</title>
+    <meta name="description" content="Prodigy Agency - Elevate your digital presence with expert digital marketing and social media management services.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'display': ['Montserrat', 'sans-serif'],
+                        'body': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            200: '#ddd6fe',
+                            300: '#c4b5fd',
+                            400: '#a78bfa',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                            700: '#6d28d9',
+                            800: '#5b21b6',
+                            900: '#4c1d95',
+                        },
+                        accent: {
+                            cyan: '#06b6d4',
+                            violet: '#8b5cf6',
+                            pink: '#ec4899',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-delayed': 'float 6s ease-in-out infinite 3s',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'gradient': 'gradient 8s ease infinite',
+                        'blob': 'blob 7s infinite',
+                        'slide-up': 'slideUp 0.6s ease-out forwards',
+                        'fade-in': 'fadeIn 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        gradient: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                        },
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                        'gradient-mesh': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #8b5cf6;
+            --cyan: #06b6d4;
+            --dark: #0f172a;
+            --darker: #020617;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 50%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
+        }
+        
+        .glass {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .glass-card {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            border-color: rgba(139, 92, 246, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.1);
+        }
+        
+        .glow {
+            box-shadow: 0 0 40px rgba(139, 92, 246, 0.3);
+        }
+        
+        .glow-cyan {
+            box-shadow: 0 0 40px rgba(6, 182, 212, 0.3);
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #8b5cf6, #06b6d4);
+            border-radius: 4px;
+        }
+        
+        /* Hero Animation */
+        .hero-gradient {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Orbital Animation */
+        .orbital {
+            animation: orbit 20s linear infinite;
+        }
+        
+        @keyframes orbit {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Floating Shapes */
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.5;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        /* Reveal Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Service Card Hover Effect */
+        .service-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .service-card:hover::before {
+            left: 100%;
+        }
+        
+        /* Button Hover Effects */
+        .btn-glow:hover {
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
+        }
+        
+        /* Mobile Menu Overlay */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.4s ease-in-out;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        /* Counter Animation */
+        .counter {
+            font-size: 3rem;
+            font-weight: 800;
+        }
+        
+        /* Marquee Animation */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
+        
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        /* Stats Card */
+        .stat-card {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(6, 182, 212, 0.1));
+            border: 1px solid rgba(139, 92, 246, 0.2);
+        }
+        
+        /* Portfolio Hover */
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.95), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        /* Testimonial Card */
+        .testimonial-card {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        /* Team Card */
+        .team-card {
+            position: relative;
+        }
+        
+        .team-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #8b5cf6, #06b6d4);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .team-card:hover::after {
+            transform: scaleX(1);
+        }
+        
+        /* Contact Form */
+        .input-field {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .input-field:focus {
+            border-color: #8b5cf6;
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+        }
+        
+        /* Loader */
+        .loader {
+            border: 3px solid rgba(139, 92, 246, 0.3);
+            border-radius: 50%;
+            border-top: 3px solid #8b5cf6;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Cursor Glow Effect -->
+    <div id="cursor-glow" class="fixed pointer-events-none z-50 w-96 h-96 rounded-full opacity-10 blur-3xl bg-gradient-to-r from-primary-500 to-cyan-400 transition-transform duration-75 ease-out" style="transform: translate(-50%, -50%);"></div>
+
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900">
+        <div class="text-center">
+            <div class="loader mx-auto mb-4"></div>
+            <p class="text-white text-lg">Prodigy Agency</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300">
+                        <i class="ph-bold ph-bolt text-white text-xl"></i>
+                    </div>
+                    <span class="font-display font-bold text-xl tracking-tight">Prodigy<span class="gradient-text">Agency</span></span>
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center gap-8">
+                    <a href="#services" class="text-gray-300 hover:text-white transition-colors text-sm font-medium uppercase tracking-wider">Services</a>
+                    <a href="#work" class="text-gray-300 hover:text-white transition-colors text-sm font-medium uppercase tracking-wider">Work</a>
+                    <a href="#about" class="text-gray-300 hover:text-white transition-colors text-sm font-medium uppercase tracking-wider">About</a>
+                    <a href="#team" class="text-gray-300 hover:text-white transition-colors text-sm font-medium uppercase tracking-wider">Team</a>
+                    <a href="#testimonials" class="text-gray-300 hover:text-white transition-colors text-sm font-medium uppercase tracking-wider">Testimonials</a>
+                </div>
+                
+                <!-- CTA Button & Mobile Menu Toggle -->
+                <div class="flex items-center gap-4">
+                    <a href="#contact" class="hidden lg:inline-flex items-center gap-2 px-6 py-3 rounded-full gradient-bg text-white font-semibold text-sm hover:shadow-lg hover:shadow-primary-500/30 transition-all duration-300 btn-glow">
+                        <span>Let's Talk</span>
+                        <i class="ph-bold ph-arrow-right"></i>
+                    </a>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" class="lg:hidden w-12 h-12 rounded-xl glass flex items-center justify-center cursor-pointer">
+                        <i class="ph-bold ph-list text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 lg:hidden">
+        <div class="absolute inset-0 bg-slate-900/95 backdrop-blur-lg"></div>
+        <div class="mobile-menu absolute top-0 right-0 w-full max-w-sm h-full glass bg-slate-900 p-8">
+            <div class="flex justify-between items-center mb-12">
+                <span class="font-display font-bold text-xl">Prodigy<span class="gradient-text">Agency</span></span>
+                <button id="mobile-menu-close" class="w-10 h-10 rounded-full glass flex items-center justify-center cursor-pointer">
+                    <i class="ph-bold ph-x text-xl"></i>
+                </button>
+            </div>
+            <nav class="flex flex-col gap-6">
+                <a href="#services" class="text-2xl font-display font-bold hover:text-primary-400 transition-colors">Services</a>
+                <a href="#work" class="text-2xl font-display font-bold hover:text-primary-400 transition-colors">Work</a>
+                <a href="#about" class="text-2xl font-display font-bold hover:text-primary-400 transition-colors">About</a>
+                <a href="#team" class="text-2xl font-display font-bold hover:text-primary-400 transition-colors">Team</a>
+                <a href="#testimonials" class="text-2xl font-display font-bold hover:text-primary-400 transition-colors">Testimonials</a>
+                <a href="#contact" class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full gradient-bg text-white font-semibold mt-4">
+                    <span>Let's Talk</span>
+                    <i class="ph-bold ph-arrow-right"></i>
+                </a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="shape w-96 h-96 bg-primary-500/30 top-20 left-10 animate-pulse-slow"></div>
+            <div class="shape w-80 h-80 bg-cyan-500/30 top-40 right-20 animation-delay-2000" style="animation-delay: 2s;"></div>
+            <div class="shape w-64 h-64 bg-pink-500/20 bottom-20 left-1/3 animation-delay-4000" style="animation-delay: 4s;"></div>
+            <div class="shape w-72 h-72 bg-primary-600/20 bottom-40 right-10"></div>
+        </div>
+        
+        <!-- Floating Icons -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute top-1/4 left-10 w-16 h-16 rounded-2xl bg-slate-800/50 backdrop-blur border border-white/10 flex items-center justify-center animate-float">
+                <i class="ph-fill ph-instagram-logo text-3xl text-pink-500"></i>
+            </div>
+            <div class="absolute top-1/3 right-16 w-16 h-16 rounded-2xl bg-slate-800/50 backdrop-blur border border-white/10 flex items-center justify-center animate-float-delayed">
+                <i class="ph-fill ph-linkedin-logo text-3xl text-blue-500"></i>
+            </div>
+            <div class="absolute bottom-1/4 left-20 w-16 h-16 rounded-2xl bg-slate-800/50 backdrop-blur border border-white/10 flex items-center justify-center animate-float" style="animation-delay: 1.5s;">
+                <i class="ph-fill ph-tiktok-logo text-3xl text-white"></i>
+            </div>
+            <div class="absolute bottom-1/3 right-20 w-16 h-16 rounded-2xl bg-slate-800/50 backdrop-blur border border-white/10 flex items-center justify-center animate-float-delayed" style="animation-delay: 2.5s;">
+                <i class="ph-fill ph-youtube-logo text-3xl text-red-500"></i>
+            </div>
+            <div class="absolute top-1/2 left-1/4 w-16 h-16 rounded-2xl bg-slate-800/50 backdrop-blur border border-white/10 flex items-center justify-center animate-float" style="animation-delay: 3s;">
+                <i class="ph-fill ph-twitter-logo text-3xl text-cyan-400"></i>
+            </div>
+        </div>
+        
+        <!-- Grid Pattern -->
+        <div class="absolute inset-0 opacity-20" style="background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 50px 50px;"></div>
+        
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <!-- Badge -->
+            <div class="reveal inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8">
+                <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                <span class="text-sm text-gray-300">Available for new projects</span>
+            </div>
+            
+            <!-- Main Heading -->
+            <h1 class="reveal font-display text-5xl md:text-7xl lg:text-8xl font-black leading-tight mb-6">
+                Elevate Your<br>
+                <span class="gradient-text">Digital Presence</span>
+            </h1>
+            
+            <!-- Subheading -->
+            <p class="reveal text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed">
+                We craft data-driven digital marketing strategies that transform brands and drive measurable growth in the social media landscape.
+            </p>
+            
+            <!-- CTA Buttons -->
+            <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+                <a href="#work" class="w-full sm:w-auto px-8 py-4 rounded-full gradient-bg text-white font-semibold text-lg hover:shadow-lg hover:shadow-primary-500/30 transition-all duration-300 btn-glow flex items-center justify-center gap-2">
+                    <i class="ph-bold ph-eye"></i>
+                    View Our Work
+                </a>
+                <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-full glass text-white font-semibold text-lg hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-2">
+                    <i class="ph-bold ph-rocket-launch"></i>
+                    Start Project
+                </a>
+            </div>
+            
+            <!-- Stats -->
+            <div class="reveal grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                <div class="stat-card rounded-2xl p-6 text-center">
+                    <div class="counter gradient-text mb-2" data-target="500">0</div>
+                    <p class="text-gray-400 text-sm">Projects Completed</p>
+                </div>
+                <div class="stat-card rounded-2xl p-6 text-center">
+                    <div class="counter gradient-text mb-2" data-target="150">0</div>
+                    <p class="text-gray-400 text-sm">Happy Clients</p>
+                </div>
+                <div class="stat-card rounded-2xl p-6 text-center">
+                    <div class="counter gradient-text mb-2" data-target="10">0</div>
+                    <p class="text-gray-400 text-sm">Years Experience</p>
+                </div>
+                <div class="stat-card rounded-2xl p-6 text-center">
+                    <div class="counter gradient-text mb-2" data-target="50">0</div>
+                    <p class="text-gray-400 text-sm">Team Members</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <div class="w-8 h-12 rounded-full border-2 border-white/30 flex items-start justify-center p-2">
+                <div class="w-1 h-3 rounded-full bg-gradient-to-b from-primary-500 to-cyan-400 animate-pulse"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Marquee -->
+    <section class="py-12 border-y border-white/5">
+        <div class="marquee-container">
+            <div class="marquee-content">
+                <span class="text-2xl font-bold text-gray-500 mx-8"><i class="ph-fill ph-google-logo mr-2"></i>Google</span>
+                <span class="text-2xl font-bold text-gray-500 mx-8"><i class="ph-fill ph-meta-logo mr-2"></i>Meta</span>
+                <span class="text-2xl font-bold text-gray-500 mx-8"><i class="ph-fill ph-tiktok-logo mr-2"></i>TikTok</span>
+                <span class="text-2xl font-bold text-gray-500 mx-8"><i class="ph-fill ph-spotify-logo mr-2"></i>Spotify</span>
+                <span class="text-2xl font-bold text-gray-500 mx-8"><i class="ph-fill ph-amazon-logo mr-2"></i>Amazon</span>
+                <span class="text-2xl font-bold text-gray-500 mx-8"><i class="ph-fill ph-microsoft-logo mr-2"></i>Microsoft</span>
+                <span class="text-2xl font-bold text-gray-500 mx-8"><i class="ph-fill ph-netflix-logo mr-2"></i>Netflix</span>
+                <span class="text-2xl font-bold text-gray-500 mx-8"><i class="ph-fill ph-shopify-logo mr-2"></i>Shopify</span>
+                <!-- Duplicate for seamless loop -->
+                <span class="text-2xl font-bold text-gray-500 mx-8"><i class="ph-fill ph-google-logo mr-2"></i>Google</span>
+                <span class="text-2xl font-bold text-gray-500 mx-8"><i class="ph-fill ph-meta-logo mr-2"></i>Meta</span>
+                <span class="text-2xl font-bold text-gray-500 mx-8"><i class="ph-fill ph-tiktok-logo mr-2"></i>TikTok</span>
+                <span class="text-2xl font-bold text-gray-500 mx-8"><i class="ph-fill ph-spotify-logo mr-2"></i>Spotify</span>
+                <span class="text-2xl font-bold text-gray-500 mx-8"><i class="ph-fill ph-amazon-logo mr-2"></i>Amazon</span>
+                <span class="text-2xl font-bold text-gray-500 mx-8"><i class="ph-fill ph-microsoft-logo mr-2"></i>Microsoft</span>
+                <span class="text-2xl font-bold text-gray-500 mx-8"><i class="ph-fill ph-netflix-logo mr-2"></i>Netflix</span>
+                <span class="text-2xl font-bold text-gray-500 mx-8"><i class="ph-fill ph-shopify-logo mr-2"></i>Shopify</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 relative">
+        <div class="container mx-auto px-6">
+            <!-- Section Header -->
+            <div class="text-center mb-16 reveal">
+                <span class="text-primary-400 font-medium text-sm uppercase tracking-wider mb-4 block">Our Services</span>
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+                    Comprehensive <span class="gradient-text">Digital Solutions</span>
+                </h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                    From strategic planning to creative execution, we deliver end-to-end digital marketing services that drive real results.
+                </p>
+            </div>
+            
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Service Card 1 -->
+                <div class="glass-card rounded-3xl p-8 service-card reveal">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center mb-6">
+                        <i class="ph-fill ph-instagram-logo text-3xl text-white"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-4">Social Media Management</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Complete social media management including content creation, community engagement, and analytics tracking across all platforms.
+                    </p>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <i class="ph-fill ph-check-circle text-green-400"></i>
+                            Content Strategy & Planning
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <i class="ph-fill ph-check-circle text-green-400"></i>
+                            Daily Account Management
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <i class="ph-fill ph-check-circle text-green-400"></i>
+                            Performance Analytics
+                        </li>
+                    </ul>
+                    <a href="#contact" class="inline-flex items-center gap-2 text-primary-400 font-semibold hover:text-primary-300 transition-colors">
+                        Learn More <i class="ph-bold ph-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <!-- Service Card 2 -->
+                <div class="glass-card rounded-3xl p-8 service-card reveal">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center mb-6">
+                        <i class="ph-fill ph-megaphone text-3xl text-white"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-4">Paid Advertising</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Data-driven paid advertising campaigns across Google, social media, and display networks to maximize your ROI.
+                    </p>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <i class="ph-fill ph-check-circle text-green-400"></i>
+                            Google Ads Management
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <i class="ph-fill ph-check-circle text-green-400"></i>
+                            Social Media Advertising
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <i class="ph-fill ph-check-circle text-green-400"></i>
+                            A/B Testing & Optimization
+                        </li>
+                    </ul>
+                    <a href="#contact" class="inline-flex items-center gap-2 text-primary-400 font-semibold hover:text-primary-300 transition-colors">
+                        Learn More <i class="ph-bold ph-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <!-- Service Card 3 -->
+                <div class="glass-card rounded-3xl p-8 service-card reveal">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-primary-600 flex items-center justify-center mb-6">
+                        <i class="ph-fill ph-paint-brush text-3xl text-white"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-4">Content Creation</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Stunning visual content and compelling copy that captures your brand voice and engages your target audience.
+                    </p>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <i class="ph-fill ph-check-circle text-green-400"></i>
+                            Graphic Design & Branding
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <i class="ph-fill ph-check-circle text-green-400"></i>
+                            Video Production
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <i class="ph-fill ph-check-circle text-green-400"></i>
+                            Copywriting & SEO Content
+                        </li>
+                    </ul>
+                    <a href="#contact" class="inline-flex items-center gap-2 text-primary-400 font-semibold hover:text-primary-300 transition-colors">
+                        Learn More <i class="ph-bold ph-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <!-- Service Card 4 -->
+                <div class="glass-card rounded-3xl p-8 service-card reveal">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center mb-6">
+                        <i class="ph-fill ph-chart-line-up text-3xl text-white"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-4">SEO & Analytics</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Comprehensive SEO strategies and advanced analytics to improve your search rankings and track performance metrics.
+                    </p>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <i class="ph-fill ph-check-circle text-green-400"></i>
+                            Technical SEO Audit
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <i class="ph-fill ph-check-circle text-green-400"></i>
+                            Keyword Research
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <i class="ph-fill ph-check-circle text-green-400"></i>
+                            Performance Tracking
+                        </li>
+                    </ul>
+                    <a href="#contact" class="inline-flex items-center gap-2 text-primary-400 font-semibold hover:text-primary-300 transition-colors">
+                        Learn More <i class="ph-bold ph-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <!-- Service Card 5 -->
+                <div class="glass-card rounded-3xl p-8 service-card reveal">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center mb-6">
+                        <i class="ph-fill ph-users-three text-3xl text-white"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-4">Influencer Marketing</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Connect with the right influencers to amplify your brand message and reach new audiences through authentic partnerships.
+                    </p>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <i class="ph-fill ph-check-circle text-green-400"></i>
+                            Influencer Outreach
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <i class="ph-fill ph-check-circle text-green-400"></i>
+                            Campaign Management
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <i class="ph-fill ph-check-circle text-green-400"></i>
+                            ROI Analysis
+                        </li>
+                    </ul>
+                    <a href="#contact" class="inline-flex items-center gap-2 text-primary-400 font-semibold hover:text-primary-300 transition-colors">
+                        Learn More <i class="ph-bold ph-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <!-- Service Card 6 -->
+                <div class="glass-card rounded-3xl p-8 service-card reveal">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center mb-6">
+                        <i class="ph-fill ph-envelope-open text-3xl text-white"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-4">Email Marketing</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Targeted email campaigns that nurture leads, increase conversions, and build lasting customer relationships.
+                    </p>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <i class="ph-fill ph-check-circle text-green-400"></i>
+                            Campaign Strategy
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <i class="ph-fill ph-check-circle text-green-400"></i>
+                            Automation Workflows
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <i class="ph-fill ph-check-circle text-green-400"></i>
+                            A/B Testing
+                        </li>
+                    </ul>
+                    <a href="#contact" class="inline-flex items-center gap-2 text-primary-400 font-semibold hover:text-primary-300 transition-colors">
+                        Learn More <i class="ph-bold ph-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="work" class="py-24 relative">
+        <div class="container mx-auto px-6">
+            <!-- Section Header -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 reveal">
+                <div>
+                    <span class="text-primary-400 font-medium text-sm uppercase tracking-wider mb-4 block">Our Work</span>
+                    <h2 class="font-display text-4xl md:text-5xl font-bold">
+                        Featured <span class="gradient-text">Case Studies</span>
+                    </h2>
+                </div>
+                <a href="#" class="mt-6 md:mt-0 inline-flex items-center gap-2 px-6 py-3 rounded-full glass text-white font-semibold hover:bg-white/10 transition-all duration-300">
+                    View All Projects <i class="ph-bold ph-arrow-right"></i>
+                </a>
+            </div>
+            
+            <!-- Portfolio Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Portfolio Item 1 -->
+                <div class="portfolio-item rounded-3xl overflow-hidden reveal group">
+                    <div class="aspect-[4/5] bg-gradient-to-br from-slate-800 to-slate-900 relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-pink-500/20 to-purple-600/20"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-24 h-24 rounded-2xl bg-white/10 backdrop-blur flex items-center justify-center">
+                                <i class="ph-fill ph-instagram-logo text-5xl text-white"></i>
+                            </div>
+                        </div>
+                        <div class="portfolio-overlay"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <span class="text-primary-400 text-sm font-medium mb-2 block">Social Media Growth</span>
+                            <h3 class="font-display text-2xl font-bold mb-2">Fashion Brand Campaign</h3>
+                            <p class="text-gray-300 text-sm mb-4">300% increase in engagement</p>
+                            <div class="flex items-center gap-4">
+                                <div class="flex -space-x-2">
+                                    <div class="w-8 h-8 rounded-full bg-primary-500 flex items-center justify-center text-xs font-bold">IG</div>
+                                    <div class="w-8 h-8 rounded-full bg-cyan-500 flex items-center justify-center text-xs font-bold">TK</div>
+                                    <div class="w-8 h-8 rounded-full bg-pink-500 flex items-center justify-center text-xs font-bold">FB</div>
+                                </div>
+                                <span class="text-gray-400 text-sm">+2 more</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 2 -->
+                <div class="portfolio-item rounded-3xl overflow-hidden reveal group">
+                    <div class="aspect-[4/5] bg-gradient-to-br from-slate-800 to-slate-900 relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-cyan-600/20"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-24 h-24 rounded-2xl bg-white/10 backdrop-blur flex items-center justify-center">
+                                <i class="ph-fill ph-shopping-cart text-5xl text-white"></i>
+                            </div>
+                        </div>
+                        <div class="portfolio-overlay"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <span class="text-primary-400 text-sm font-medium mb-2 block">E-commerce</span>
+                            <h3 class="font-display text-2xl font-bold mb-2">Tech Store Launch</h3>
+                            <p class="text-gray-300 text-sm mb-4">$2M+ in first quarter</p>
+                            <div class="flex items-center gap-4">
+                                <div class="flex -space-x-2">
+                                    <div class="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center text-xs font-bold">GG</div>
+                                    <div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-xs font-bold">FB</div>
+                                </div>
+                                <span class="text-gray-400 text-sm">+3 more</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 3 -->
+                <div class="portfolio-item rounded-3xl overflow-hidden reveal group">
+                    <div class="aspect-[4/5] bg-gradient-to-br from-slate-800 to-slate-900 relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-green-500/20 to-emerald-600/20"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-24 h-24 rounded-2xl bg-white/10 backdrop-blur flex items-center justify-center">
+                                <i class="ph-fill ph-video-camera text-5xl text-white"></i>
+                            </div>
+                        </div>
+                        <div class="portfolio-overlay"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <span class="text-primary-400 text-sm font-medium mb-2 block">Video Marketing</span>
+                            <h3 class="font-display text-2xl font-bold mb-2">Tech Startup Video</h3>
+                            <p class="text-gray-300 text-sm mb-4">10M+ views on YouTube</p>
+                            <div class="flex items-center gap-4">
+                                <div class="flex -space-x-2">
+                                    <div class="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center text-xs font-bold">YT</div>
+                                    <div class="w-8 h-8 rounded-full bg-pink-500 flex items-center justify-center text-xs font-bold">TK</div>
+                                </div>
+                                <span class="text-gray-400 text-sm">+2 more</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 4 -->
+                <div class="portfolio-item rounded-3xl overflow-hidden reveal group">
+                    <div class="aspect-[4/5] bg-gradient-to-br from-slate-800 to-slate-900 relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-amber-600/20"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-24 h-24 rounded-2xl bg-white/10 backdrop-blur flex items-center justify-center">
+                                <i class="ph-fill ph-trend-up text-5xl text-white"></i>
+                            </div>
+                        </div>
+                        <div class="portfolio-overlay"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <span class="text-primary-400 text-sm font-medium mb-2 block">SEO Optimization</span>
+                            <h3 class="font-display text-2xl font-bold mb-2">SaaS Company SEO</h3>
+                            <p class="text-gray-300 text-sm mb-4">500% traffic increase</p>
+                            <div class="flex items-center gap-4">
+                                <div class="flex -space-x-2">
+                                    <div class="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center text-xs font-bold">GG</div>
+                                    <div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-xs font-bold">LI</div>
+                                </div>
+                                <span class="text-gray-400 text-sm">+1 more</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 5 -->
+                <div class="portfolio-item rounded-3xl overflow-hidden reveal group">
+                    <div class="aspect-[4/5] bg-gradient-to-br from-slate-800 to-slate-900 relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-blue-600/20"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-24 h-24 rounded-2xl bg-white/10 backdrop-blur flex items-center justify-center">
+                                <i class="ph-fill ph-users text-5xl text-white"></i>
+                            </div>
+                        </div>
+                        <div class="portfolio-overlay"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <span class="text-primary-400 text-sm font-medium mb-2 block">Influencer Campaign</span>
+                            <h3 class="font-display text-2xl font-bold mb-2">Beauty Brand Launch</h3>
+                            <p class="text-gray-300 text-sm mb-4">50M+ impressions</p>
+                            <div class="flex items-center gap-4">
+                                <div class="flex -space-x-2">
+                                    <div class="w-8 h-8 rounded-full bg-pink-500 flex items-center justify-center text-xs font-bold">IG</div>
+                                    <div class="w-8 h-8 rounded-full bg-cyan-500 flex items-center justify-center text-xs font-bold">TK</div>
+                                </div>
+                                <span class="text-gray-400 text-sm">+4 more</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 6 -->
+                <div class="portfolio-item rounded-3xl overflow-hidden reveal group">
+                    <div class="aspect-[4/5] bg-gradient-to-br from-slate-800 to-slate-900 relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-violet-500/20 to-purple-600/20"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-24 h-24 rounded-2xl bg-white/10 backdrop-blur flex items-center justify-center">
+                                <i class="ph-fill ph-envelope text-5xl text-white"></i>
+                            </div>
+                        </div>
+                        <div class="portfolio-overlay"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <span class="text-primary-400 text-sm font-medium mb-2 block">Email Marketing</span>
+                            <h3 class="font-display text-2xl font-bold mb-2">Newsletter Campaign</h3>
+                            <p class="text-gray-300 text-sm mb-4">45% open rate achieved</p>
+                            <div class="flex items-center gap-4">
+                                <div class="flex -space-x-2">
+                                    <div class="w-8 h-8 rounded-full bg-yellow-500 flex items-center justify-center text-xs font-bold">EM</div>
+                                </div>
+                                <span class="text-gray-400 text-sm">Email</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 relative">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Content -->
+                <div class="reveal">
+                    <span class="text-primary-400 font-medium text-sm uppercase tracking-wider mb-4 block">About Us</span>
+                    <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+                        We're a Team of <span class="gradient-text">Digital Strategists</span>
+                    </h2>
+                    <p class="text-gray-400 text-lg leading-relaxed mb-6">
+                        Prodigy Agency was founded with a singular mission: to help businesses thrive in the digital age. We combine creativity, technology, and data-driven insights to deliver exceptional results for our clients.
+                    </p>
+                    <p class="text-gray-400 text-lg leading-relaxed mb-8">
+                        Our team consists of passionate digital marketers, creative designers, and strategic thinkers who are dedicated to elevating your brand's digital presence. We believe in the power of storytelling and authentic connections.
+                    </p>
+                    
+                    <!-- Features -->
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-primary-500/20 flex items-center justify-center flex-shrink-0">
+                                <i class="ph-fill ph-target text-2xl text-primary-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-display font-bold mb-1">Results-Driven</h4>
+                                <p class="text-gray-400 text-sm">Focus on measurable outcomes</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-cyan-500/20 flex items-center justify-center flex-shrink-0">
+                                <i class="ph-fill ph-lightning text-2xl text-cyan-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-display font-bold mb-1">Fast & Agile</h4>
+                                <p class="text-gray-400 text-sm">Quick iterations & pivots</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-pink-500/20 flex items-center justify-center flex-shrink-0">
+                                <i class="ph-fill ph-heart text-2xl text-pink-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-display font-bold mb-1">Client-First</h4>
+                                <p class="text-gray-400 text-sm">Your success is our priority</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center flex-shrink-0">
+                                <i class="ph-fill ph-chart-bar text-2xl text-green-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-display font-bold mb-1">Data-Backed</h4>
+                                <p class="text-gray-400 text-sm">Decisions based on analytics</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="inline-flex items-center gap-2 px-8 py-4 rounded-full gradient-bg text-white font-semibold hover:shadow-lg hover:shadow-primary-500/30 transition-all duration-300 btn-glow">
+                        Work With Us <i class="ph-bold ph-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <!-- Image/Visual -->
+                <div class="relative reveal">
+                    <div class="absolute inset-0 bg-gradient-to-r from-primary-500 to-cyan-500 rounded-3xl blur-3xl opacity-20"></div>
+                    <div class="relative rounded-3xl overflow-hidden glass-card p-8">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="aspect-square rounded-2xl bg-gradient-to-br from-primary-500/20 to-purple-600/20 flex items-center justify-center">
+                                <i class="ph-fill ph-rocket-launch text-4xl text-primary-400"></i>
+                            </div>
+                            <div class="aspect-square rounded-2xl bg-gradient-to-br from-cyan-500/20 to-blue-600/20 flex items-center justify-center">
+                                <i class="ph-fill ph-users-three text-4xl text-cyan-400"></i>
+                            </div>
+                            <div class="aspect-square rounded-2xl bg-gradient-to-br from-pink-500/20 to-rose-600/20 flex items-center justify-center">
+                                <i class="ph-fill ph-trophy text-4xl text-pink-400"></i>
+                            </div>
+                            <div class="aspect-square rounded-2xl bg-gradient-to-br from-amber-500/20 to-orange-600/20 flex items-center justify-center">
+                                <i class="ph-fill ph-certificate text-4xl text-amber-400"></i>
+                            </div>
+                        </div>
+                        <div class="mt-6 text-center">
+                            <div class="text-4xl font-display font-bold gradient-text mb-2">10+</div>
+                            <p class="text-gray-400">Years of Excellence</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-24 relative">
+        <div class="container mx-auto px-6">
+            <!-- Section Header -->
+            <div class="text-center mb-16 reveal">
+                <span class="text-primary-400 font-medium text-sm uppercase tracking-wider mb-4 block">Testimonials</span>
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+                    What Our <span class="gradient-text">Clients Say</span>
+                </h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                    Don't just take our word for it. Hear from some of our satisfied clients about their experience working with Prodigy Agency.
+                </p>
+            </div>
+            
+            <!-- Testimonials Slider -->
+            <div class="flex gap-6 overflow-x-auto pb-8 snap-x" style="scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;">
+                <!-- Testimonial Card 1 -->
+                <div class="testimonial-card rounded-3xl p-8 min-w-[350px] md:min-w-[400px] snap-center">
+                    <div class="flex items-center gap-1 mb-4">
+                        <i class="ph-fill ph-star text-amber-400"></i>
+                        <i class="ph-fill ph-star text-amber-400"></i>
+                        <i class="ph-fill ph-star text-amber-400"></i>
+                        <i class="ph-fill ph-star text-amber-400"></i>
+                        <i class="ph-fill ph-star text-amber-400"></i>
+                    </div>
+                    <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                        "Prodigy Agency transformed our social media presence completely. Their strategic approach to content creation and community management helped us grow our following by 500% in just 6 months."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 rounded-full bg-gradient-to-br from-primary-500 to-cyan-500 flex items-center justify-center font-bold text-xl">
+                            SK
+                        </div>
+                        <div>
+                            <h4 class="font-display font-bold">Sarah Kim</h4>
+                            <p class="text-gray-400 text-sm">CEO, Fashion Forward</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial Card 2 -->
+                <div class="testimonial-card rounded-3xl p-8 min-w-[350px] md:min-w-[400px] snap-center">
+                    <div class="flex items-center gap-1 mb-4">
+                        <i class="ph-fill ph-star text-amber-400"></i>
+                        <i class="ph-fill ph-star text-amber-400"></i>
+                        <i class="ph-fill ph-star text-amber-400"></i>
+                        <i class="ph-fill ph-star text-amber-400"></i>
+                        <i class="ph-fill ph-star text-amber-400"></i>
+                    </div>
+                    <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                        "The team at Prodigy Agency delivered beyond our expectations. Their paid advertising campaign generated a 300% ROI, and their reporting was transparent and comprehensive."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 rounded-full bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center font-bold text-xl">
+                            MR
+                        </div>
+                        <div>
+                            <h4 class="font-display font-bold">Michael Roberts</h4>
+                            <p class="text-gray-400 text-sm">Marketing Director, TechStart</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial Card 3 -->
+                <div class="testimonial-card rounded-3xl p-8 min-w-[350px] md:min-w-[400px] snap-center">
+                    <div class="flex items-center gap-1 mb-4">
+                        <i class="ph-fill ph-star text-amber-400"></i>
+                        <i class="ph-fill ph-star text-amber-400"></i>
+                        <i class="ph-fill ph-star text-amber-400"></i>
+                        <i class="ph-fill ph-star text-amber-400"></i>
+                        <i class="ph-fill ph-star text-amber-400"></i>
+                    </div>
+                    <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                        "Working with Prodigy Agency was a game-changer for our brand. Their creative vision and strategic execution helped us launch our product to over 10 million views."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 rounded-full bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center font-bold text-xl">
+                            EL
+                        </div>
+                        <div>
+                            <h4 class="font-display font-bold">Emily Liu</h4>
+                            <p class="text-gray-400 text-sm">Founder, GreenWave</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial Card 4 -->
+                <div class="testimonial-card rounded-3xl p-8 min-w-[350px] md:min-w-[400px] snap-center">
+                    <div class="flex items-center gap-1 mb-4">
+                        <i class="ph-fill ph-star text-amber-400"></i>
+                        <i class="ph-fill ph-star text-amber-400"></i>
+                        <i class="ph-fill ph-star text-amber-400"></i>
+                        <i class="ph-fill ph-star text-amber-400"></i>
+                        <i class="ph-fill ph-star text-amber-400"></i>
+                    </div>
+                    <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                        "The SEO improvements Prodigy Agency achieved for our website were remarkable. We went from page 10 to page 1 for all our target keywords within 4 months."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 rounded-full bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center font-bold text-xl">
+                            JD
+                        </div>
+                        <div>
+                            <h4 class="font-display font-bold">James Davidson</h4>
+                            <p class="text-gray-400 text-sm">Owner, Local Bistro</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-24 relative">
+        <div class="container mx-auto px-6">
+            <!-- Section Header -->
+            <div class="text-center mb-16 reveal">
+                <span class="text-primary-400 font-medium text-sm uppercase tracking-wider mb-4 block">Our Team</span>
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+                    Meet the <span class="gradient-text">Experts</span>
+                </h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                    Our team of passionate digital marketers, creative designers, and strategic thinkers are here to elevate your brand.
+                </p>
+            </div>
+            
+            <!-- Team Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Team Member 1 -->
+                <div class="team-card glass-card rounded-3xl overflow-hidden reveal">
+                    <div class="aspect-square bg-gradient-to-br from-slate-800 to-slate-900 relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-primary-500/20 to-cyan-500/20"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-20 h-20 rounded-full bg-gradient-to-br from-primary-500 to-cyan-500 flex items-center justify-center text-3xl font-bold">
+                                <i class="ph-fill ph-user"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold mb-1">Alex Morgan</h3>
+                        <p class="text-primary-400 text-sm mb-4">Founder & CEO</p>
+                        <div class="flex items-center gap-3">
+                            <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-primary-500/20 transition-colors">
+                                <i class="ph-fill ph-linkedin-logo text-lg"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-primary-500/20 transition-colors">
+                                <i class="ph-fill ph-twitter-logo text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 2 -->
+                <div class="team-card glass-card rounded-3xl overflow-hidden reveal">
+                    <div class="aspect-square bg-gradient-to-br from-slate-800 to-slate-900 relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-pink-500/20 to-rose-500/20"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-20 h-20 rounded-full bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center text-3xl font-bold">
+                                <i class="ph-fill ph-user"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold mb-1">Jordan Taylor</h3>
+                        <p class="text-primary-400 text-sm mb-4">Creative Director</p>
+                        <div class="flex items-center gap-3">
+                            <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-primary-500/20 transition-colors">
+                                <i class="ph-fill ph-linkedin-logo text-lg"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-primary-500/20 transition-colors">
+                                <i class="ph-fill ph-instagram-logo text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 3 -->
+                <div class="team-card glass-card rounded-3xl overflow-hidden reveal">
+                    <div class="aspect-square bg-gradient-to-br from-slate-800 to-slate-900 relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-blue-500/20"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-20 h-20 rounded-full bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-3xl font-bold">
+                                <i class="ph-fill ph-user"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold mb-1">Casey Williams</h3>
+                        <p class="text-primary-400 text-sm mb-4">Head of Strategy</p>
+                        <div class="flex items-center gap-3">
+                            <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-primary-500/20 transition-colors">
+                                <i class="ph-fill ph-linkedin-logo text-lg"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-primary-500/20 transition-colors">
+                                <i class="ph-fill ph-twitter-logo text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 4 -->
+                <div class="team-card glass-card rounded-3xl overflow-hidden reveal">
+                    <div class="aspect-square bg-gradient-to-br from-slate-800 to-slate-900 relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-amber-500/20 to-orange-500/20"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-20 h-20 rounded-full bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center text-3xl font-bold">
+                                <i class="ph-fill ph-user"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold mb-1">Riley Johnson</h3>
+                        <p class="text-primary-400 text-sm mb-4">Social Media Lead</p>
+                        <div class="flex items-center gap-3">
+                            <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-primary-500/20 transition-colors">
+                                <i class="ph-fill ph-linkedin-logo text-lg"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-primary-500/20 transition-colors">
+                                <i class="ph-fill ph-instagram-logo text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 relative">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16">
+                <!-- Contact Info -->
+                <div class="reveal">
+                    <span class="text-primary-400 font-medium text-sm uppercase tracking-wider mb-4 block">Get In Touch</span>
+                    <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+                        Let's Create <span class="gradient-text">Something Amazing</span>
+                    </h2>
+                    <p class="text-gray-400 text-lg leading-relaxed mb-8">
+                        Ready to take your digital presence to the next level? Get in touch with us and let's discuss how we can help your brand grow.
+                    </p>
+                    
+                    <!-- Contact Details -->
+                    <div class="space-y-6 mb-8">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-2xl bg-primary-500/20 flex items-center justify-center">
+                                <i class="ph-fill ph-envelope text-2xl text-primary-400"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-400 text-sm">Email Us</p>
+                                <p class="font-semibold"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="335b565f5f5c7343415c575a544a5254565d504a1d505c5e">[email&#160;protected]</a></p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-2xl bg-cyan-500/20 flex items-center justify-center">
+                                <i class="ph-fill ph-phone text-2xl text-cyan-400"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-400 text-sm">Call Us</p>
+                                <p class="font-semibold">+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-2xl bg-pink-500/20 flex items-center justify-center">
+                                <i class="ph-fill ph-map-pin text-2xl text-pink-400"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-400 text-sm">Visit Us</p>
+                                <p class="font-semibold">123 Digital Avenue, Tech City, CA 90210</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Links -->
+                    <div class="flex items-center gap-4">
+                        <a href="#" class="w-12 h-12 rounded-xl glass flex items-center justify-center hover:bg-primary-500/20 transition-all duration-300 hover:scale-110">
+                            <i class="ph-fill ph-instagram-logo text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 rounded-xl glass flex items-center justify-center hover:bg-blue-500/20 transition-all duration-300 hover:scale-110">
+                            <i class="ph-fill ph-linkedin-logo text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 rounded-xl glass flex items-center justify-center hover:bg-cyan-500/20 transition-all duration-300 hover:scale-110">
+                            <i class="ph-fill ph-twitter-logo text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 rounded-xl glass flex items-center justify-center hover:bg-pink-500/20 transition-all duration-300 hover:scale-110">
+                            <i class="ph-fill ph-tiktok-logo text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 rounded-xl glass flex items-center justify-center hover:bg-red-500/20 transition-all duration-300 hover:scale-110">
+                            <i class="ph-fill ph-youtube-logo text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="reveal">
+                    <div class="glass-card rounded-3xl p-8">
+                        <h3 class="font-display text-2xl font-bold mb-6">Send Us a Message</h3>
+                        <form id="contact-form" class="space-y-6">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-gray-400 text-sm mb-2">First Name</label>
+                                    <input type="text" name="firstName" class="input-field w-full rounded-xl px-4 py-3 text-white focus:outline-none" placeholder="John" required>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-400 text-sm mb-2">Last Name</label>
+                                    <input type="text" name="lastName" class="input-field w-full rounded-xl px-4 py-3 text-white focus:outline-none" placeholder="Doe" required>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-gray-400 text-sm mb-2">Email Address</label>
+                                <input type="email" name="email" class="input-field w-full rounded-xl px-4 py-3 text-white focus:outline-none" placeholder="john@example.com" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-400 text-sm mb-2">Phone Number</label>
+                                <input type="tel" name="phone" class="input-field w-full rounded-xl px-4 py-3 text-white focus:outline-none" placeholder="+1 (555) 000-0000">
+                            </div>
+                            <div>
+                                <label class="block text-gray-400 text-sm mb-2">Service Interested In</label>
+                                <select name="service" class="input-field w-full rounded-xl px-4 py-3 text-white focus:outline-none" required>
+                                    <option value="" class="bg-slate-800">Select a service...</option>
+                                    <option value="social" class="bg-slate-800">Social Media Management</option>
+                                    <option value="ads" class="bg-slate-800">Paid Advertising</option>
+                                    <option value="content" class="bg-slate-800">Content Creation</option>
+                                    <option value="seo" class="bg-slate-800">SEO & Analytics</option>
+                                    <option value="influencer" class="bg-slate-800">Influencer Marketing</option>
+                                    <option value="email" class="bg-slate-800">Email Marketing</option>
+                                    <option value="other" class="bg-slate-800">Other</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-gray-400 text-sm mb-2">Your Message</label>
+                                <textarea name="message" rows="4" class="input-field w-full rounded-xl px-4 py-3 text-white focus:outline-none resize-none" placeholder="Tell us about your project..." required></textarea>
+                            </div>
+                            <button type="submit" class="w-full py-4 rounded-full gradient-bg text-white font-semibold text-lg hover:shadow-lg hover:shadow-primary-500/30 transition-all duration-300 btn-glow flex items-center justify-center gap-2">
+                                <span>Send Message</span>
+                                <i class="ph-bold ph-paper-plane-right"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 relative">
+        <div class="container mx-auto px-6">
+            <div class="relative rounded-3xl overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-r from-primary-600 to-cyan-600"></div>
+                <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRjMC0yIDItNCAyLTRzLTItMi00LTJjMCAwLTItMi0yLTRzMi00IDItNCAyIDIgNCAyczQgMiA0IDQtMiA0LTIgNC0yIDItNCAyYzAgMC0yIDItMiA0czIgNCAyIDQiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-30"></div>
+                <div class="relative p-12 md:p-16 text-center">
+                    <h2 class="font-display text-3xl md:text-5xl font-bold mb-4">Ready to Grow Your Business?</h2>
+                    <p class="text-white/80 text-lg mb-8 max-w-2xl mx-auto">Let's work together to create a digital marketing strategy that drives real results for your brand.</p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-full bg-white text-primary-600 font-semibold text-lg hover:bg-gray-100 transition-all duration-300">
+                            Start Your Project
+                        </a>
+                        <a href="#work" class="w-full sm:w-auto px-8 py-4 rounded-full border-2 border-white text-white font-semibold text-lg hover:bg-white/10 transition-all duration-300">
+                            View Our Work
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-12">
+                <!-- Brand -->
+                <div class="col-span-2 md:col-span-4 lg:col-span-1">
+                    <a href="#" class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center">
+                            <i class="ph-bold ph-bolt text-white text-xl"></i>
+                        </div>
+                        <span class="font-display font-bold text-xl">Prodigy<span class="gradient-text">Agency</span></span>
+                    </a>
+                    <p class="text-gray-400 text-sm mb-4">
+                        Elevating brands through innovative digital marketing strategies and creative excellence.
+                    </p>
+                </div>
+                
+                <!-- Services -->
+                <div>
+                    <h4 class="font-display font-bold mb-4">Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors text-sm">Social Media</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors text-sm">Paid Advertising</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors text-sm">Content Creation</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors text-sm">SEO & Analytics</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Company -->
+                <div>
+                    <h4 class="font-display font-bold mb-4">Company</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors text-sm">About Us</a></li>
+                        <li><a href="#team" class="text-gray-400 hover:text-white transition-colors text-sm">Our Team</a></li>
+                        <li><a href="#work" class="text-gray-400 hover:text-white transition-colors text-sm">Case Studies</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-white transition-colors text-sm">Testimonials</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Resources -->
+                <div>
+                    <h4 class="font-display font-bold mb-4">Resources</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Guides</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Newsletter</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Careers</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-display font-bold mb-4">Contact</h4>
+                    <ul class="space-y-3">
+                        <li class="text-gray-400 text-sm"><i class="ph-fill ph-envelope mr-2"></i><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8de5e8e1e1e2cdfdffe2e9e4eaf4eceae8e3eef4a3eee2e0">[email&#160;protected]</a></li>
+                        <li class="text-gray-400 text-sm"><i class="ph-fill ph-phone mr-2"></i>+1 (555) 123-4567</li>
+                        <li class="text-gray-400 text-sm"><i class="ph-fill ph-map-pin mr-2"></i>Tech City, CA</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Bottom Bar -->
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-gray-400 text-sm">© 2024 Prodigy Agency. All rights reserved.</p>
+                <div class="flex items-center gap-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Preloader
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            setTimeout(() => {
+                preloader.style.opacity = '0';
+                preloader.style.visibility = 'hidden';
+                preloader.style.transition = 'all 0.5s ease';
+            }, 1000);
+        });
+
+        // Cursor Glow Effect
+        const cursorGlow = document.getElementById('cursor-glow');
+        document.addEventListener('mousemove', (e) => {
+            cursorGlow.style.left = e.clientX + 'px';
+            cursorGlow.style.top = e.clientY + 'px';
+        });
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('glass');
+                navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.remove('glass');
+                navbar.classList.remove('shadow-lg');
+            }
+        });
+
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuOverlay = mobileMenu.querySelector('.absolute');
+        const mobileMenuPanel = mobileMenu.querySelector('.mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+        
+        // Close mobile menu on link click
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        // Reveal Animations
+        const reveals = document.querySelectorAll('.reveal');
+
+        function revealOnScroll() {
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const revealPoint = 150;
+
+                if (elementTop < windowHeight - revealPoint) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Initial check
+
+        // Counter Animation
+        const counters = document.querySelectorAll('.counter');
+
+        function animateCounters() {
+            counters.forEach(counter => {
+                const counterTop = counter.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                const target = parseInt(counter.getAttribute('data-target'));
+
+                if (counterTop < windowHeight - 100 && !counter.classList.contains('animated')) {
+                    counter.classList.add('animated');
+                    let current = 0;
+                    const increment = target / 50;
+                    const duration = 2000;
+                    const stepTime = duration / 50;
+
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            counter.textContent = target + '+';
+                            clearInterval(timer);
+                        } else {
+                            counter.textContent = Math.floor(current);
+                        }
+                    }, stepTime);
+                }
+            });
+        }
+
+        window.addEventListener('scroll', animateCounters);
+        animateCounters(); // Initial check
+
+        // Contact Form
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData);
+            
+            // Simulate form submission
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<div class="loader" style="width: 24px; height: 24px; border-width: 2px;"></div>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<i class="ph-fill ph-check-circle text-xl"></i><span>Message Sent!</span>';
+                submitBtn.classList.remove('gradient-bg');
+                submitBtn.classList.add('bg-green-500');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.classList.add('gradient-bg');
+                    submitBtn.classList.remove('bg-green-500');
+                    submitBtn.disabled = false;
+                    contactForm.reset();
+                }, 3000);
+            }, 2000);
+            
+            console.log('Form submitted:', data);
+        });
+
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Parallax Effect for Hero Shapes
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const shapes = document.querySelectorAll('.shape');
+            shapes.forEach((shape, index) => {
+                const speed = 0.1 + (index * 0.05);
+                shape.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Add animation delay to elements
+        document.querySelectorAll('.service-card, .portfolio-item, .team-card').forEach((el, index) => {
+            el.style.animationDelay = `${index * 0.1}s`;
+        });
+
+        // Console welcome message
+        console.log('%c🚀 Prodigy Agency', 'font-size: 32px; font-weight: bold; background: linear-gradient(135deg, #8b5cf6, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent;');
+        console.log('%cDigital Marketing & Social Media Management', 'font-size: 16px; color: #94a3b8;');
+        console.log('%cBuilt with ❤️ using HTML, CSS, JS & Tailwind CSS', 'font-size: 14px; color: #64748b;');
+    </script>
+</body>
+</html>
