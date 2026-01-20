@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prodigy Agency | Digital Marketing & Social Media Management</title>
+    <meta name="description" content="Prodigy Agency - We turn attention into revenue through next-gen digital marketing and social media strategies.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            200: '#ddd6fe',
+                            300: '#c4b5fd',
+                            400: '#a78bfa',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                            700: '#6d28d9',
+                            800: '#5b21b6',
+                            900: '#4c1d95',
+                        },
+                        dark: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'gradient': 'gradient 8s ease infinite',
+                        'marquee': 'marquee 25s linear infinite',
+                        'shimmer': 'shimmer 2s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        gradient: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        },
+                        shimmer: {
+                            '0%': { backgroundPosition: '-200% 0' },
+                            '100%': { backgroundPosition: '200% 0' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom CSS */
+        * {
+            cursor: none;
+        }
+        
+        @media (hover: none) {
+            * {
+                cursor: auto;
+            }
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+        
+        /* Custom Cursor */
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #06b6d4;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.15s ease, background-color 0.15s ease;
+            mix-blend-mode: difference;
+        }
+        
+        .cursor-follower {
+            width: 8px;
+            height: 8px;
+            background: #7c3aed;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.08s ease;
+        }
+        
+        .cursor.hover {
+            transform: scale(2.5);
+            background-color: rgba(6, 182, 212, 0.1);
+        }
+        
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 50%, #8b5cf6 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient 4s ease infinite;
+        }
+        
+        /* Animated Background */
+        .animated-bg {
+            background: linear-gradient(-45deg, #0f172a, #1e293b, #0f172a, #1e1b4b);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        
+        /* Mesh Gradient */
+        .mesh-gradient {
+            background: 
+                radial-gradient(at 40% 20%, rgba(124, 58, 237, 0.3) 0px, transparent 50%),
+                radial-gradient(at 80% 0%, rgba(6, 182, 212, 0.3) 0px, transparent 50%),
+                radial-gradient(at 0% 50%, rgba(139, 92, 246, 0.2) 0px, transparent 50%),
+                radial-gradient(at 80% 50%, rgba(6, 182, 212, 0.2) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, rgba(124, 58, 237, 0.3) 0px, transparent 50%),
+                radial-gradient(at 80% 100%, rgba(6, 182, 212, 0.2) 0px, transparent 50%);
+        }
+        
+        /* Glass Card */
+        .glass-card {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Glow Effects */
+        .glow-purple {
+            box-shadow: 0 0 40px rgba(124, 58, 237, 0.3), 0 0 80px rgba(124, 58, 237, 0.1);
+        }
+        
+        .glow-cyan {
+            box-shadow: 0 0 40px rgba(6, 182, 212, 0.3), 0 0 80px rgba(6, 182, 212, 0.1);
+        }
+        
+        /* Scroll Reveal Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Card Hover Effect */
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Button Styles */
+        .btn-primary {
+            background: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        /* Marquee */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 25s linear infinite;
+        }
+        
+        /* Text Scramble */
+        .scramble-text {
+            font-family: monospace;
+        }
+        
+        /* Section Padding */
+        section {
+            padding: 100px 0;
+        }
+        
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 0;
+            }
+            
+            .cursor, .cursor-follower {
+                display: none;
+            }
+            
+            * {
+                cursor: auto;
+            }
+        }
+        
+        /* Navigation Blur */
+        .nav-blur {
+            backdrop-filter: blur(20px);
+            background: rgba(15, 23, 42, 0.8);
+        }
+        
+        /* Portfolio Image Zoom */
+        .portfolio-zoom {
+            overflow: hidden;
+        }
+        
+        .portfolio-zoom img {
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .portfolio-zoom:hover img {
+            transform: scale(1.1);
+        }
+        
+        /* Floating Badge */
+        .floating-badge {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-badge:nth-child(2) {
+            animation-delay: -2s;
+        }
+        
+        .floating-badge:nth-child(3) {
+            animation-delay: -4s;
+        }
+        
+        /* Input Focus */
+        .input-focus {
+            transition: all 0.3s ease;
+        }
+        
+        .input-focus:focus {
+            border-color: #7c3aed;
+            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.2);
+        }
+        
+        /* Stats Counter */
+        .stat-number {
+            background: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        /* Decorative Elements */
+        .decoration-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        
+        /* Line Clamp */
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .line-clamp-3 {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Custom Cursor -->
+    <div class="cursor hidden md:block"></div>
+    <div class="cursor-follower hidden md:block"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 nav-blur border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-10 h-10 bg-gradient-to-br from-brand-600 to-cyan-500 rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300">
+                        <i class="ph-bold ph-bolt text-white text-xl"></i>
+                    </div>
+                    <span class="font-display font-bold text-xl tracking-tight">Prodigy<span class="gradient-text">Agency</span></span>
+                </a>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#services" class="nav-link text-dark-300 hover:text-white transition-colors duration-300 font-medium">Services</a>
+                    <a href="#portfolio" class="nav-link text-dark-300 hover:text-white transition-colors duration-300 font-medium">Work</a>
+                    <a href="#about" class="nav-link text-dark-300 hover:text-white transition-colors duration-300 font-medium">About</a>
+                    <a href="#testimonials" class="nav-link text-dark-300 hover:text-white transition-colors duration-300 font-medium">Reviews</a>
+                    <a href="#contact" class="btn-primary px-6 py-3 rounded-full text-white font-semibold hover:shadow-lg hover:shadow-brand-500/50 transition-all duration-300 transform hover:-translate-y-1">
+                        Let's Talk
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-white p-2">
+                    <i class="ph-bold ph-list text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu fixed inset-0 bg-dark-900/95 backdrop-blur-xl z-50 md:hidden">
+            <div class="flex flex-col items-center justify-center h-full space-y-8">
+                <a href="#services" class="mobile-menu-link text-3xl font-display font-bold text-white hover:text-brand-400 transition-colors">Services</a>
+                <a href="#portfolio" class="mobile-menu-link text-3xl font-display font-bold text-white hover:text-brand-400 transition-colors">Work</a>
+                <a href="#about" class="mobile-menu-link text-3xl font-display font-bold text-white hover:text-brand-400 transition-colors">About</a>
+                <a href="#testimonials" class="mobile-menu-link text-3xl font-display font-bold text-white hover:text-brand-400 transition-colors">Reviews</a>
+                <a href="#contact" class="mobile-menu-link text-3xl font-display font-bold gradient-text hover:text-brand-400 transition-colors">Let's Talk</a>
+                <button id="mobile-menu-close" class="absolute top-6 right-6 text-white p-2">
+                    <i class="ph-bold ph-x text-3xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden mesh-gradient">
+        <!-- Decorative Blobs -->
+        <div class="decoration-blob w-96 h-96 bg-brand-600/30 top-0 left-0 -translate-x-1/2 -translate-y-1/2"></div>
+        <div class="decoration-blob w-96 h-96 bg-cyan-500/30 bottom-0 right-0 translate-x-1/3 translate-y-1/3"></div>
+        
+        <!-- Animated Grid -->
+        <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 50px 50px;"></div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <!-- Badge -->
+            <div class="floating-badge inline-flex items-center space-x-2 glass-card px-4 py-2 rounded-full mb-8 reveal">
+                <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                <span class="text-sm text-dark-300">Accepting new clients for Q1 2025</span>
+            </div>
+            
+            <!-- Hero Content -->
+            <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight reveal">
+                We Turn Attention<br>
+                Into <span class="gradient-text">Revenue</span>
+            </h1>
+            
+            <p class="text-xl text-dark-300 max-w-2xl mx-auto mb-10 reveal">
+                Next-gen digital marketing strategies that scale brands from 6 to 8 figures. We don't just manage social media—we dominate it.
+            </p>
+            
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 reveal">
+                <a href="#contact" class="btn-primary px-8 py-4 rounded-full text-white font-semibold text-lg hover:shadow-2xl hover:shadow-brand-500/50 transition-all duration-300 transform hover:-translate-y-2">
+                    Get Your Free Audit
+                    <i class="ph-bold ph-arrow-right ml-2"></i>
+                </a>
+                <a href="#portfolio" class="px-8 py-4 rounded-full text-white font-semibold text-lg border border-white/20 hover:bg-white/10 transition-all duration-300 flex items-center">
+                    <i class="ph-bold ph-play-circle mr-2"></i>
+                    View Our Work
+                </a>
+            </div>
+            
+            <!-- Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 reveal">
+                <div class="text-center">
+                    <div class="stat-number font-display text-4xl md:text-5xl font-bold" data-target="250">0</div>
+                    <div class="text-dark-400 mt-2">Million Revenue Generated</div>
+                </div>
+                <div class="text-center">
+                    <div class="stat-number font-display text-4xl md:text-5xl font-bold" data-target="150">0</div>
+                    <div class="text-dark-400 mt-2">+ Brands Scaled</div>
+                </div>
+                <div class="text-center">
+                    <div class="stat-number font-display text-4xl md:text-5xl font-bold" data-target="15">0</div>
+                    <div class="text-dark-400 mt-2">Billion Impressions</div>
+                </div>
+                <div class="text-center">
+                    <div class="stat-number font-display text-4xl md:text-5xl font-bold" data-target="8">0</div>
+                    <div class="text-dark-400 mt-2">Years of Excellence</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="ph-bold ph-arrow-down text-2xl text-dark-400"></i>
+        </div>
+    </section>
+    
+    <!-- Marquee Section -->
+    <div class="py-12 border-y border-white/10 bg-dark-900/50 overflow-hidden">
+        <div class="marquee-container">
+            <div class="marquee-content flex items-center space-x-16">
+                <span class="text-2xl font-display font-bold text-dark-400 flex items-center"><i class="ph-fill ph-spotify-logo mr-3 text-3xl"></i> SPOTIFY</span>
+                <span class="text-2xl font-display font-bold text-dark-400 flex items-center"><i class="ph-fill ph-airbnb-logo mr-3 text-3xl"></i> AIRBNB</span>
+                <span class="text-2xl font-display font-bold text-dark-400 flex items-center"><i class="ph-fill ph-amazon-logo mr-3 text-3xl"></i> AMAZON</span>
+                <span class="text-2xl font-display font-bold text-dark-400 flex items-center"><i class="ph-fill ph-slack-logo mr-3 text-3xl"></i> SLACK</span>
+                <span class="text-2xl font-display font-bold text-dark-400 flex items-center"><i class="ph-fill ph-stripe-logo mr-3 text-3xl"></i> STRIPE</span>
+                <span class="text-2xl font-display font-bold text-dark-400 flex items-center"><i class="ph-fill ph-dropbox-logo mr-3 text-3xl"></i> DROPBOX</span>
+                <span class="text-2xl font-display font-bold text-dark-400 flex items-center"><i class="ph-fill ph-figma-logo mr-3 text-3xl"></i> FIGMA</span>
+                <span class="text-2xl font-display font-bold text-dark-400 flex items-center"><i class="ph-fill ph-notion-logo mr-3 text-3xl"></i> NOTION</span>
+            </div>
+            <div class="marquee-content flex items-center space-x-16">
+                <span class="text-2xl font-display font-bold text-dark-400 flex items-center"><i class="ph-fill ph-spotify-logo mr-3 text-3xl"></i> SPOTIFY</span>
+                <span class="text-2xl font-display font-bold text-dark-400 flex items-center"><i class="ph-fill ph-airbnb-logo mr-3 text-3xl"></i> AIRBNB</span>
+                <span class="text-2xl font-display font-bold text-dark-400 flex items-center"><i class="ph-fill ph-amazon-logo mr-3 text-3xl"></i> AMAZON</span>
+                <span class="text-2xl font-display font-bold text-dark-400 flex items-center"><i class="ph-fill ph-slack-logo mr-3 text-3xl"></i> SLACK</span>
+                <span class="text-2xl font-display font-bold text-dark-400 flex items-center"><i class="ph-fill ph-stripe-logo mr-3 text-3xl"></i> STRIPE</span>
+                <span class="text-2xl font-display font-bold text-dark-400 flex items-center"><i class="ph-fill ph-dropbox-logo mr-3 text-3xl"></i> DROPBOX</span>
+                <span class="text-2xl font-display font-bold text-dark-400 flex items-center"><i class="ph-fill ph-figma-logo mr-3 text-3xl"></i> FIGMA</span>
+                <span class="text-2xl font-display font-bold text-dark-400 flex items-center"><i class="ph-fill ph-notion-logo mr-3 text-3xl"></i> NOTION</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Services Section -->
+    <section id="services" class="relative">
+        <div class="decoration-blob w-64 h-64 bg-brand-600/20 top-1/4 right-0 translate-x-1/2"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-20 reveal">
+                <span class="text-brand-400 font-semibold tracking-wider uppercase text-sm">Our Expertise</span>
+                <h2 class="font-display text-4xl md:text-5xl font-bold mt-4 mb-6">Services That <span class="gradient-text">Scale</span></h2>
+                <p class="text-dark-300 text-lg max-w-2xl mx-auto">
+                    From content creation to paid advertising, we offer end-to-end digital marketing solutions that deliver measurable results.
+                </p>
+            </div>
+            
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Service 1 -->
+                <div class="glass-card rounded-2xl p-8 card-hover reveal group cursor-pointer">
+                    <div class="w-14 h-14 bg-gradient-to-br from-brand-600 to-brand-400 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="ph-fill ph-users text-2xl text-white"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-4 group-hover:text-brand-400 transition-colors">Social Media Management</h3>
+                    <p class="text-dark-300">Full-service social media management including content strategy, community engagement, and growth hacking across all platforms.</p>
+                    <div class="mt-6 flex items-center text-brand-400 font-semibold group-hover:translate-x-2 transition-transform">
+                        Learn More <i class="ph-bold ph-arrow-right ml-2"></i>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="glass-card rounded-2xl p-8 card-hover reveal group cursor-pointer" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 bg-gradient-to-br from-cyan-500 to-cyan-400 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="ph-fill ph-megaphone text-2xl text-white"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-4 group-hover:text-cyan-400 transition-colors">Paid Advertising</h3>
+                    <p class="text-dark-300">Data-driven paid campaigns on Meta, Google, TikTok, and LinkedIn that maximize ROAS and minimize wasted ad spend.</p>
+                    <div class="mt-6 flex items-center text-cyan-400 font-semibold group-hover:translate-x-2 transition-transform">
+                        Learn More <i class="ph-bold ph-arrow-right ml-2"></i>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="glass-card rounded-2xl p-8 card-hover reveal group cursor-pointer" style="transition-delay: 200ms;">
+                    <div class="w-14 h-14 bg-gradient-to-br from-pink-500 to-rose-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="ph-fill ph-video-camera text-2xl text-white"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-4 group-hover:text-pink-400 transition-colors">Content Creation</h3>
+                    <p class="text-dark-300">Scroll-stopping content that converts—videos, graphics, copywriting, and UGC that builds brand affinity and drives engagement.</p>
+                    <div class="mt-6 flex items-center text-pink-400 font-semibold group-hover:translate-x-2 transition-transform">
+                        Learn More <i class="ph-bold ph-arrow-right ml-2"></i>
+                    </div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="glass-card rounded-2xl p-8 card-hover reveal group cursor-pointer" style="transition-delay: 300ms;">
+                    <div class="w-14 h-14 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="ph-fill ph-chart-line-up text-2xl text-white"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-4 group-hover:text-emerald-400 transition-colors">SEO & Growth</h3>
+                    <p class="text-dark-300">Technical SEO, content marketing, and growth strategies that put your brand in front of customers actively searching for your solutions.</p>
+                    <div class="mt-6 flex items-center text-emerald-400 font-semibold group-hover:translate-x-2 transition-transform">
+                        Learn More <i class="ph-bold ph-arrow-right ml-2"></i>
+                    </div>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="glass-card rounded-2xl p-8 card-hover reveal group cursor-pointer" style="transition-delay: 400ms;">
+                    <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-amber-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="ph-fill ph-influencer text-2xl text-white"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-4 group-hover:text-orange-400 transition-colors">Influencer Marketing</h3>
+                    <p class="text-dark-300">Connect with the right creators through our vetted network. Authentic partnerships that drive awareness and conversions.</p>
+                    <div class="mt-6 flex items-center text-orange-400 font-semibold group-hover:translate-x-2 transition-transform">
+                        Learn More <i class="ph-bold ph-arrow-right ml-2"></i>
+                    </div>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="glass-card rounded-2xl p-8 card-hover reveal group cursor-pointer" style="transition-delay: 500ms;">
+                    <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="ph-fill ph-paint-brush-broad text-2xl text-white"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-4 group-hover:text-blue-400 transition-colors">Brand Identity</h3>
+                    <p class="text-dark-300">Complete brand overhauls—from visual identity to messaging strategy—that position you as a leader in your space.</p>
+                    <div class="mt-6 flex items-center text-blue-400 font-semibold group-hover:translate-x-2 transition-transform">
+                        Learn More <i class="ph-bold ph-arrow-right ml-2"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="relative bg-dark-900/50">
+        <div class="decoration-blob w-96 h-96 bg-cyan-500/20 top-1/3 left-0 -translate-x-1/2"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-16 reveal">
+                <div>
+                    <span class="text-brand-400 font-semibold tracking-wider uppercase text-sm">Selected Work</span>
+                    <h2 class="font-display text-4xl md:text-5xl font-bold mt-4 mb-4">Case <span class="gradient-text">Studies</span></h2>
+                    <p class="text-dark-300 text-lg max-w-xl">
+                        Real results for real brands. Explore our latest campaigns and the numbers behind them.
+                    </p>
+                </div>
+                <a href="#" class="hidden md:inline-flex items-center text-brand-400 font-semibold hover:text-brand-300 transition-colors mt-6 md:mt-0">
+                    View All Projects <i class="ph-bold ph-arrow-right ml-2"></i>
+                </a>
+            </div>
+            
+            <!-- Portfolio Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Project 1 -->
+                <div class="reveal group cursor-pointer">
+                    <div class="relative rounded-2xl overflow-hidden mb-6 portfolio-zoom">
+                        <div class="aspect-video bg-gradient-to-br from-brand-900 to-dark-800 flex items-center justify-center">
+                            <div class="text-center">
+                                <i class="ph-fill ph-shopping-bag text-6xl text-brand-400 mb-4"></i>
+                                <div class="text-4xl font-display font-bold gradient-text">E-COMMERCE</div>
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-dark-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
+                            <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                <span class="text-brand-400 font-semibold text-sm uppercase tracking-wider">Fashion Retailer</span>
+                                <h3 class="font-display text-2xl font-bold mt-2">450% ROAS on Meta Ads</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-3 py-1 bg-brand-600/20 text-brand-400 rounded-full text-sm font-medium">Paid Ads</span>
+                        <span class="px-3 py-1 bg-brand-600/20 text-brand-400 rounded-full text-sm font-medium">Social Media</span>
+                        <span class="px-3 py-1 bg-brand-600/20 text-brand-400 rounded-full text-sm font-medium">Creative</span>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="reveal group cursor-pointer" style="transition-delay: 200ms;">
+                    <div class="relative rounded-2xl overflow-hidden mb-6 portfolio-zoom">
+                        <div class="aspect-video bg-gradient-to-br from-cyan-900 to-dark-800 flex items-center justify-center">
+                            <div class="text-center">
+                                <i class="ph-fill ph-heartbeat text-6xl text-cyan-400 mb-4"></i>
+                                <div class="text-4xl font-display font-bold gradient-text">HEALTHTECH</div>
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-dark-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
+                            <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                <span class="text-cyan-400 font-semibold text-sm uppercase tracking-wider">Fitness App</span>
+                                <h3 class="font-display text-2xl font-bold mt-2">2M+ App Installs</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-3 py-1 bg-cyan-600/20 text-cyan-400 rounded-full text-sm font-medium">Influencer</span>
+                        <span class="px-3 py-1 bg-cyan-600/20 text-cyan-400 rounded-full text-sm font-medium">UGC</span>
+                        <span class="px-3 py-1 bg-cyan-600/20 text-cyan-400 rounded-full text-sm font-medium">Brand Awareness</span>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="reveal group cursor-pointer">
+                    <div class="relative rounded-2xl overflow-hidden mb-6 portfolio-zoom">
+                        <div class="aspect-video bg-gradient-to-br from-pink-900 to-dark-800 flex items-center justify-center">
+                            <div class="text-center">
+                                <i class="ph-fill ph-coffee text-6xl text-pink-400 mb-4"></i>
+                                <div class="text-4xl font-display font-bold gradient-text">FOOD & BEV</div>
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-dark-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
+                            <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                <span class="text-pink-400 font-semibold text-sm uppercase tracking-wider">Beverage Brand</span>
+                                <h3 class="font-display text-2xl font-bold mt-2">800% Revenue Growth</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-3 py-1 bg-pink-600/20 text-pink-400 rounded-full text-sm font-medium">Content</span>
+                        <span class="px-3 py-1 bg-pink-600/20 text-pink-400 rounded-full text-sm font-medium">Community</span>
+                        <span class="px-3 py-1 bg-pink-600/20 text-pink-400 rounded-full text-sm font-medium">Email Marketing</span>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="reveal group cursor-pointer" style="transition-delay: 200ms;">
+                    <div class="relative rounded-2xl overflow-hidden mb-6 portfolio-zoom">
+                        <div class="aspect-video bg-gradient-to-br from-emerald-900 to-dark-800 flex items-center justify-center">
+                            <div class="text-center">
+                                <i class="ph-fill ph-rocket-launch text-6xl text-emerald-400 mb-4"></i>
+                                <div class="text-4xl font-display font-bold gradient-text">STARTUP</div>
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-dark-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
+                            <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                <span class="text-emerald-400 font-semibold text-sm uppercase tracking-wider">SaaS Platform</span>
+                                <h3 class="font-display text-2xl font-bold mt-2">5M+ Website Visitors</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-3 py-1 bg-emerald-600/20 text-emerald-400 rounded-full text-sm font-medium">SEO</span>
+                        <span class="px-3 py-1 bg-emerald-600/20 text-emerald-400 rounded-full text-sm font-medium">Content Strategy</span>
+                        <span class="px-3 py-1 bg-emerald-600/20 text-emerald-400 rounded-full text-sm font-medium">Lead Gen</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile View All -->
+            <div class="text-center mt-10 md:hidden">
+                <a href="#" class="inline-flex items-center text-brand-400 font-semibold hover:text-brand-300 transition-colors">
+                    View All Projects <i class="ph-bold ph-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Left Content -->
+                <div class="reveal">
+                    <span class="text-brand-400 font-semibold tracking-wider uppercase text-sm">Who We Are</span>
+                    <h2 class="font-display text-4xl md:text-5xl font-bold mt-4 mb-6 leading-tight">
+                        Not Your Average<br>
+                        <span class="gradient-text">Marketing Agency</span>
+                    </h2>
+                    <p class="text-dark-300 text-lg mb-6">
+                        We're a team of creators, strategists, and data nerds who believe that marketing should be as enjoyable as it is effective. No fluff, no jargon—just results that move the needle.
+                    </p>
+                    <p class="text-dark-300 text-lg mb-8">
+                        Founded in 2017, Prodigy Agency has helped 150+ brands achieve explosive growth through innovative digital strategies. We combine creative excellence with analytical precision to deliver campaigns that don't just perform—they dominate.
+                    </p>
+                    
+                    <!-- Values -->
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-10 h-10 bg-brand-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="ph-fill ph-lightning text-brand-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white">Speed</h4>
+                                <p class="text-dark-400 text-sm">Fast execution, faster results</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-10 h-10 bg-cyan-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="ph-fill ph-chart-bar text-cyan-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white">Data</h4>
+                                <p class="text-dark-400 text-sm">Every decision backed by data</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-10 h-10 bg-pink-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="ph-fill ph-heart text-pink-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white">Passion</h4>
+                                <p class="text-dark-400 text-sm">We love what we do</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-10 h-10 bg-emerald-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="ph-fill ph-target text-emerald-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white">Focus</h4>
+                                <p class="text-dark-400 text-sm">Laser-focused on your goals</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="inline-flex items-center btn-primary px-8 py-4 rounded-full text-white font-semibold hover:shadow-lg hover:shadow-brand-500/50 transition-all duration-300">
+                        Work With Us <i class="ph-bold ph-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Right Content - Visual -->
+                <div class="relative reveal">
+                    <div class="absolute inset-0 bg-gradient-to-br from-brand-600 to-cyan-500 rounded-3xl blur-3xl opacity-20"></div>
+                    <div class="relative glass-card rounded-3xl p-8">
+                        <!-- Team Stats -->
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="text-center p-6 bg-dark-800/50 rounded-2xl">
+                                <div class="text-4xl font-display font-bold gradient-text">25+</div>
+                                <div class="text-dark-400 mt-2">Team Members</div>
+                            </div>
+                            <div class="text-center p-6 bg-dark-800/50 rounded-2xl">
+                                <div class="text-4xl font-display font-bold gradient-text">150+</div>
+                                <div class="text-dark-400 mt-2">Projects Delivered</div>
+                            </div>
+                            <div class="text-center p-6 bg-dark-800/50 rounded-2xl">
+                                <div class="text-4xl font-display font-bold gradient-text">8</div>
+                                <div class="text-dark-400 mt-2">Industry Awards</div>
+                            </div>
+                            <div class="text-center p-6 bg-dark-800/50 rounded-2xl">
+                                <div class="text-4xl font-display font-bold gradient-text">98%</div>
+                                <div class="text-dark-400 mt-2">Client Retention</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Floating Elements -->
+                        <div class="absolute -top-6 -right-6 w-24 h-24 bg-gradient-to-br from-brand-600 to-cyan-500 rounded-2xl flex items-center justify-center shadow-2xl floating-badge">
+                            <i class="ph-fill ph-trophy text-3xl text-white"></i>
+                        </div>
+                        <div class="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-500 rounded-xl flex items-center justify-center shadow-2xl floating-badge">
+                            <i class="ph-fill ph-star text-2xl text-white"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="relative bg-dark-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16 reveal">
+                <span class="text-brand-400 font-semibold tracking-wider uppercase text-sm">Testimonials</span>
+                <h2 class="font-display text-4xl md:text-5xl font-bold mt-4 mb-6">What Clients <span class="gradient-text">Say</span></h2>
+            </div>
+            
+            <!-- Testimonials Slider -->
+            <div class="relative reveal">
+                <div id="testimonials-track" class="flex gap-6 overflow-x-auto pb-8 scrollbar-hide" style="scroll-behavior: smooth;">
+                    <!-- Testimonial 1 -->
+                    <div class="flex-shrink-0 w-96 glass-card rounded-2xl p-8">
+                        <div class="flex items-center space-x-1 mb-4">
+                            <i class="ph-fill ph-star text-amber-400"></i>
+                            <i class="ph-fill ph-star text-amber-400"></i>
+                            <i class="ph-fill ph-star text-amber-400"></i>
+                            <i class="ph-fill ph-star text-amber-400"></i>
+                            <i class="ph-fill ph-star text-amber-400"></i>
+                        </div>
+                        <p class="text-dark-200 mb-6 text-lg">"Prodigy Agency completely transformed our social media presence. Within 3 months, our engagement increased by 400% and we saw a direct correlation to revenue growth."</p>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-brand-600 to-cyan-500 rounded-full flex items-center justify-center">
+                                <span class="font-bold text-white">JD</span>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-white">John Doe</div>
+                                <div class="text-dark-400 text-sm">CEO, TechFlow</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="flex-shrink-0 w-96 glass-card rounded-2xl p-8">
+                        <div class="flex items-center space-x-1 mb-4">
+                            <i class="ph-fill ph-star text-amber-400"></i>
+                            <i class="ph-fill ph-star text-amber-400"></i>
+                            <i class="ph-fill ph-star text-amber-400"></i>
+                            <i class="ph-fill ph-star text-amber-400"></i>
+                            <i class="ph-fill ph-star text-amber-400"></i>
+                        </div>
+                        <p class="text-dark-200 mb-6 text-lg">"The ROI we've seen from their paid advertising campaigns is incredible. They don't just execute—they constantly optimize and communicate every step of the way."</p>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-pink-500 to-rose-500 rounded-full flex items-center justify-center">
+                                <span class="font-bold text-white">SM</span>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-white">Sarah Miller</div>
+                                <div class="text-dark-400 text-sm">Marketing Director, StyleCo</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="flex-shrink-0 w-96 glass-card rounded-2xl p-8">
+                        <div class="flex items-center space-x-1 mb-4">
+                            <i class="ph-fill ph-star text-amber-400"></i>
+                            <i class="ph-fill ph-star text-amber-400"></i>
+                            <i class="ph-fill ph-star text-amber-400"></i>
+                            <i class="ph-fill ph-star text-amber-400"></i>
+                            <i class="ph-fill ph-star text-amber-400"></i>
+                        </div>
+                        <p class="text-dark-200 mb-6 text-lg">"Finally, an agency that understands both creative excellence and data-driven marketing. They've been instrumental in our hypergrowth phase."</p>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-full flex items-center justify-center">
+                                <span class="font-bold text-white">MC</span>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-white">Michael Chen</div>
+                                <div class="text-dark-400 text-sm">Founder, GrowthLabs</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 4 -->
+                    <div class="flex-shrink-0 w-96 glass-card rounded-2xl p-8">
+                        <div class="flex items-center space-x-1 mb-4">
+                            <i class="ph-fill ph-star text-amber-400"></i>
+                            <i class="ph-fill ph-star text-amber-400"></i>
+                            <i class="ph-fill ph-star text-amber-400"></i>
+                            <i class="ph-fill ph-star text-amber-400"></i>
+                            <i class="ph-fill ph-star text-amber-400"></i>
+                        </div>
+                        <p class="text-dark-200 mb-6 text-lg">"Their content creation team is world-class. The videos they produced for our brand campaign went viral and generated millions of organic impressions."</p>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-orange-500 to-amber-500 rounded-full flex items-center justify-center">
+                                <span class="font-bold text-white">EW</span>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-white">Emma Wilson</div>
+                                <div class="text-dark-400 text-sm">CMO, Innovate Inc</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 5 -->
+                    <div class="flex-shrink-0 w-96 glass-card rounded-2xl p-8">
+                        <div class="flex items-center space-x-1 mb-4">
+                            <i class="ph-fill ph-star text-amber-400"></i>
+                            <i class="ph-fill ph-star text-amber-400"></i>
+                            <i class="ph-fill ph-star text-amber-400"></i>
+                            <i class="ph-fill ph-star text-amber-400"></i>
+                            <i class="ph-fill ph-star text-amber-400"></i>
+                        </div>
+                        <p class="text-dark-200 mb-6 text-lg">"Working with Prodigy Agency felt like having an in-house team. They took the time to understand our brand deeply and delivered beyond expectations."</p>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-full flex items-center justify-center">
+                                <span class="font-bold text-white">RJ</span>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-white">Robert Johnson</div>
+                                <div class="text-dark-400 text-sm">Owner, Local Bistro</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slider Controls -->
+                <div class="flex justify-center space-x-4 mt-8">
+                    <button id="slider-prev" class="w-12 h-12 rounded-full glass-card flex items-center justify-center hover:bg-brand-600/20 transition-colors">
+                        <i class="ph-bold ph-arrow-left text-white"></i>
+                    </button>
+                    <button id="slider-next" class="w-12 h-12 rounded-full glass-card flex items-center justify-center hover:bg-brand-600/20 transition-colors">
+                        <i class="ph-bold ph-arrow-right text-white"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="relative">
+        <div class="decoration-blob w-96 h-96 bg-brand-600/20 top-0 right-0 translate-x-1/3 -translate-y-1/3"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16">
+                <!-- Contact Info -->
+                <div class="reveal">
+                    <span class="text-brand-400 font-semibold tracking-wider uppercase text-sm">Get Started</span>
+                    <h2 class="font-display text-4xl md:text-5xl font-bold mt-4 mb-6 leading-tight">
+                        Let's Build Something <span class="gradient-text">Extraordinary</span>
+                    </h2>
+                    <p class="text-dark-300 text-lg mb-8">
+                        Ready to scale your brand? Fill out the form and we'll get back to you within 24 hours with a custom strategy for your business.
+                    </p>
+                    
+                    <!-- Contact Details -->
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-brand-600/20 rounded-xl flex items-center justify-center">
+                                <i class="ph-bold ph-envelope text-brand-400 text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="text-dark-400 text-sm">Email us</div>
+                                <div class="text-white font-semibold">hello@prodigyagency.com</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-cyan-600/20 rounded-xl flex items-center justify-center">
+                                <i class="ph-bold ph-phone text-cyan-400 text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="text-dark-400 text-sm">Call us</div>
+                                <div class="text-white font-semibold">+1 (555) 123-4567</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-pink-600/20 rounded-xl flex items-center justify-center">
+                                <i class="ph-bold ph-map-pin text-pink-400 text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="text-dark-400 text-sm">Visit us</div>
+                                <div class="text-white font-semibold">123 Creative Ave, New York, NY</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Links -->
+                    <div class="flex space-x-4 mt-10">
+                        <a href="#" class="w-12 h-12 glass-card rounded-xl flex items-center justify-center hover:bg-brand-600/30 transition-colors group">
+                            <i class="ph-fill ph-instagram-logo text-white group-hover:text-brand-400 transition-colors"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 glass-card rounded-xl flex items-center justify-center hover:bg-cyan-600/30 transition-colors group">
+                            <i class="ph-fill ph-twitter-logo text-white group-hover:text-cyan-400 transition-colors"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 glass-card rounded-xl flex items-center justify-center hover:bg-blue-600/30 transition-colors group">
+                            <i class="ph-fill ph-linkedin-logo text-white group-hover:text-blue-400 transition-colors"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 glass-card rounded-xl flex items-center justify-center hover:bg-pink-600/30 transition-colors group">
+                            <i class="ph-fill ph-tiktok-logo text-white group-hover:text-pink-400 transition-colors"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="reveal">
+                    <form id="contact-form" class="glass-card rounded-2xl p-8 space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-dark-300 text-sm font-medium mb-2">Name</label>
+                                <input type="text" name="name" required class="w-full bg-dark-800/50 border border-white/10 rounded-xl px-4 py-3 text-white input-focus focus:outline-none" placeholder="John Doe">
+                            </div>
+                            <div>
+                                <label class="block text-dark-300 text-sm font-medium mb-2">Email</label>
+                                <input type="email" name="email" required class="w-full bg-dark-800/50 border border-white/10 rounded-xl px-4 py-3 text-white input-focus focus:outline-none" placeholder="john@company.com">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-dark-300 text-sm font-medium mb-2">Company Website</label>
+                            <input type="url" name="website" class="w-full bg-dark-800/50 border border-white/10 rounded-xl px-4 py-3 text-white input-focus focus:outline-none" placeholder="https://yourcompany.com">
+                        </div>
+                        <div>
+                            <label class="block text-dark-300 text-sm font-medium mb-2">Budget Range</label>
+                            <select name="budget" class="w-full bg-dark-800/50 border border-white/10 rounded-xl px-4 py-3 text-white input-focus focus:outline-none">
+                                <option value="">Select your budget</option>
+                                <option value="5k-10k">$5,000 - $10,000/mo</option>
+                                <option value="10k-25k">$10,000 - $25,000/mo</option>
+                                <option value="25k-50k">$25,000 - $50,000/mo</option>
+                                <option value="50k+">$50,000+/mo</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-dark-300 text-sm font-medium mb-2">Tell us about your project</label>
+                            <textarea name="message" rows="4" class="w-full bg-dark-800/50 border border-white/10 rounded-xl px-4 py-3 text-white input-focus focus:outline-none resize-none" placeholder="What are your goals? What challenges are you facing?"></textarea>
+                        </div>
+                        <button type="submit" class="w-full btn-primary py-4 rounded-xl text-white font-semibold text-lg hover:shadow-2xl hover:shadow-brand-500/50 transition-all duration-300 transform hover:-translate-y-1">
+                            Send Message
+                            <i class="ph-bold ph-paper-plane-right ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="relative bg-dark-900/50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <span class="text-brand-400 font-semibold tracking-wider uppercase text-sm">FAQ</span>
+                <h2 class="font-display text-4xl md:text-5xl font-bold mt-4 mb-6">Common <span class="gradient-text">Questions</span></h2>
+            </div>
+            
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="glass-card rounded-2xl overflow-hidden reveal">
+                    <button class="faq-toggle w-full px-6 py-5 text-left flex items-center justify-between focus:outline-none">
+                        <span class="font-semibold text-lg">What's your typical engagement model?</span>
+                        <i class="ph-bold ph-plus text-brand-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6">
+                        <p class="text-dark-300">We offer flexible engagement models including monthly retainer, project-based, and performance-based arrangements. We'll recommend the best fit based on your goals and budget.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="glass-card rounded-2xl overflow-hidden reveal" style="transition-delay: 100ms;">
+                    <button class="faq-toggle w-full px-6 py-5 text-left flex items-center justify-between focus:outline-none">
+                        <span class="font-semibold text-lg">How long until I see results?</span>
+                        <i class="ph-bold ph-plus text-brand-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6">
+                        <p class="text-dark-300">While every campaign is different, most clients see meaningful improvements within 30-60 days. Paid ads can show results faster, while SEO and organic growth strategies typically take 3-6 months for full impact.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="glass-card rounded-2xl overflow-hidden reveal" style="transition-delay: 200ms;">
+                    <button class="faq-toggle w-full px-6 py-5 text-left flex items-center justify-between focus:outline-none">
+                        <span class="font-semibold text-lg">Do you work with businesses of all sizes?</span>
+                        <i class="ph-bold ph-plus text-brand-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6">
+                        <p class="text-dark-300">Absolutely! We've worked with startups, mid-size companies, and enterprise brands. Our strategies are tailored to your specific needs and budget, regardless of your company's size.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="glass-card rounded-2xl overflow-hidden reveal" style="transition-delay: 300ms;">
+                    <button class="faq-toggle w-full px-6 py-5 text-left flex items-center justify-between focus:outline-none">
+                        <span class="font-semibold text-lg">What makes Prodigy Agency different?</span>
+                        <i class="ph-bold ph-plus text-brand-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6">
+                        <p class="text-dark-300">We combine creative excellence with data-driven strategies. Our team is passionate about your success, and we maintain transparent communication every step of the way. We measure our success by your results.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <!-- Brand -->
+                <div class="md:col-span-1">
+                    <a href="#" class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-br from-brand-600 to-cyan-500 rounded-xl flex items-center justify-center">
+                            <i class="ph-bold ph-bolt text-white text-xl"></i>
+                        </div>
+                        <span class="font-display font-bold text-xl tracking-tight">Prodigy<span class="gradient-text">Agency</span></span>
+                    </a>
+                    <p class="text-dark-400 text-sm mb-6">
+                        We turn attention into revenue through next-gen digital marketing strategies.
+                    </p>
+                </div>
+                
+                <!-- Services -->
+                <div>
+                    <h4 class="font-semibold text-white mb-6">Services</h4>
+                    <ul class="space-y-3 text-dark-400">
+                        <li><a href="#" class="hover:text-brand-400 transition-colors">Social Media Management</a></li>
+                        <li><a href="#" class="hover:text-brand-400 transition-colors">Paid Advertising</a></li>
+                        <li><a href="#" class="hover:text-brand-400 transition-colors">Content Creation</a></li>
+                        <li><a href="#" class="hover:text-brand-400 transition-colors">SEO & Growth</a></li>
+                        <li><a href="#" class="hover:text-brand-400 transition-colors">Influencer Marketing</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Company -->
+                <div>
+                    <h4 class="font-semibold text-white mb-6">Company</h4>
+                    <ul class="space-y-3 text-dark-400">
+                        <li><a href="#" class="hover:text-brand-400 transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-brand-400 transition-colors">Work</a></li>
+                        <li><a href="#" class="hover:text-brand-400 transition-colors">Careers</a></li>
+                        <li><a href="#" class="hover:text-brand-400 transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-brand-400 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="font-semibold text-white mb-6">Newsletter</h4>
+                    <p class="text-dark-400 text-sm mb-4">Get marketing tips straight to your inbox.</p>
+                    <form class="flex space-x-2">
+                        <input type="email" placeholder="Your email" class="flex-1 bg-dark-800/50 border border-white/10 rounded-xl px-4 py-3 text-white text-sm input-focus focus:outline-none">
+                        <button type="submit" class="btn-primary px-4 py-3 rounded-xl text-white">
+                            <i class="ph-bold ph-arrow-right"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Bottom Bar -->
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between">
+                <p class="text-dark-400 text-sm">© 2025 Prodigy Agency. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-dark-400 hover:text-brand-400 transition-colors text-sm">Privacy Policy</a>
+                    <a href="#" class="text-dark-400 hover:text-brand-400 transition-colors text-sm">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Success Modal -->
+    <div id="success-modal" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-dark-900/80 backdrop-blur-sm"></div>
+        <div class="flex items-center justify-center min-h-screen px-4">
+            <div class="relative glass-card rounded-2xl p-8 max-w-md w-full text-center transform transition-all scale-100">
+                <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="ph-bold ph-check text-3xl text-white"></i>
+                </div>
+                <h3 class="font-display text-2xl font-bold mb-4">Message Sent!</h3>
+                <p class="text-dark-300 mb-6">Thanks for reaching out! We'll get back to you within 24 hours.</p>
+                <button id="close-modal" class="btn-primary px-6 py-3 rounded-full text-white font-semibold">
+                    Got it!
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Custom Cursor
+        const cursor = document.querySelector('.cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+        let followerX = 0, followerY = 0;
+        
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+        
+        function animateCursor() {
+            cursorX += (mouseX - cursorX) * 0.15;
+            cursorY += (mouseY - cursorY) * 0.15;
+            followerX += (mouseX - followerX) * 0.2;
+            followerY += (mouseY - followerY) * 0.2;
+            
+            cursor.style.transform = `translate(${cursorX - 10}px, ${cursorY - 10}px)`;
+            cursorFollower.style.transform = `translate(${followerX - 4}px, ${followerY - 4}px)`;
+            
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+        
+        // Cursor hover effects
+        const interactiveElements = document.querySelectorAll('a, button, .card-hover, .cursor-pointer');
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+        });
+        
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        mobileMenuLinks.forEach(link => link.addEventListener('click', closeMobileMenu));
+        
+        // Scroll Reveal
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+        
+        revealElements.forEach(el => revealObserver.observe(el));
+        
+        // Stats Counter Animation
+        const statNumbers = document.querySelectorAll('.stat-number');
+        let statsAnimated = false;
+        
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !statsAnimated) {
+                    statsAnimated = true;
+                    statNumbers.forEach(stat => {
+                        const target = parseInt(stat.getAttribute('data-target'));
+                        const duration = 2000;
+                        const step = target / (duration / 16);
+                        let current = 0;
+                        
+                        const counter = setInterval(() => {
+                            current += step;
+                            if (current >= target) {
+                                stat.textContent = target + '+';
+                                clearInterval(counter);
+                            } else {
+                                stat.textContent = Math.floor(current);
+                            }
+                        }, 16);
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        statNumbers.forEach(stat => statsObserver.observe(stat));
+        
+        // Testimonials Slider
+        const sliderTrack = document.getElementById('testimonials-track');
+        const sliderPrev = document.getElementById('slider-prev');
+        const sliderNext = document.getElementById('slider-next');
+        let currentSlide = 0;
+        const cardWidth = 384 + 24; // card width + gap
+        
+        sliderPrev.addEventListener('click', () => {
+            currentSlide = Math.max(0, currentSlide - 1);
+            sliderTrack.scrollTo({
+                left: currentSlide * cardWidth,
+                behavior: 'smooth'
+            });
+        });
+        
+        sliderNext.addEventListener('click', () => {
+            const maxSlide = sliderTrack.scrollWidth / cardWidth - window.innerWidth / cardWidth;
+            currentSlide = Math.min(maxSlide, currentSlide + 1);
+            sliderTrack.scrollTo({
+                left: currentSlide * cardWidth,
+                behavior: 'smooth'
+            });
+        });
+        
+        // FAQ Toggle
+        const faqToggles = document.querySelectorAll('.faq-toggle');
+        
+        faqToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const content = toggle.nextElementSibling;
+                const icon = toggle.querySelector('i');
+                
+                content.classList.toggle('hidden');
+                icon.classList.toggle('rotate-45');
+            });
+        });
+        
+        // Contact Form
+        const contactForm = document.getElementById('contact-form');
+        const successModal = document.getElementById('success-modal');
+        const closeModal = document.getElementById('close-modal');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            successModal.classList.remove('hidden');
+            contactForm.reset();
+        });
+        
+        closeModal.addEventListener('click', () => {
+            successModal.classList.add('hidden');
+        });
+        
+        successModal.addEventListener('click', (e) => {
+            if (e.target === successModal) {
+                successModal.classList.add('hidden');
+            }
+        });
+        
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Navbar background on scroll
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                nav.classList.add('shadow-lg');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>
